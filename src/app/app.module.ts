@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { MatCommonModule } from '@angular/material/core';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { ViewConfigurationComponent } from './view-configuration/view-configuration.component';
+import { CompareProductComponent } from './compare-product/compare-product.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ViewConfigurationComponent } from './view-configuration/view-configurat
     HomeComponent,
     routingComponents,
     ListProductsComponent,
-    ViewConfigurationComponent
+    ViewConfigurationComponent,
+    CompareProductComponent
   ],
   imports: [
     BrowserModule,

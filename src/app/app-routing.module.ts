@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CompareProductComponent } from './compare-product/compare-product.component';
 import { HomeComponent } from './home/home.component';
 import { ListBrandsComponent } from './list-brands/list-brands.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { ViewConfigurationComponent } from './view-configuration/view-configuration.component';
+
 
 
 
@@ -21,6 +23,9 @@ const routes: Routes = [
   },
   {
     path: 'viewConfig', component: ViewConfigurationComponent
+  },
+  {
+    path: 'compareProducts', component: CompareProductComponent
   }
 ];
 
@@ -33,5 +38,6 @@ export class AppRoutingModule { }
    ListBrandsComponent,
    HomeComponent,
    ListProductsComponent,
-   ViewConfigurationComponent
+   ViewConfigurationComponent,
+   CompareProductComponent
  ];
