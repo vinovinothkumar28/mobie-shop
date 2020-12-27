@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-list-brands',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListBrandsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router ) { }
 
   ngOnInit(): void {
   }
+
+  onClickBrand(brandName)
+  {
+    //alert(category);
+    this.router.navigate(['/listProducts',brandName]);
+  }
+
 
 }

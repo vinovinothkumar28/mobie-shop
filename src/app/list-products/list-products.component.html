@@ -1,127 +1,38 @@
-<div style="max-width: 100%; background: rgb(255, 255, 255); text-align: center;height: max-content;overflow: auto;padding: 20px;">
-    <div style="width: 100%;">
-        
-        <div class="animate__animated animate__backInUp ">
-            <span style="  color: rgb(122, 71, 71);text-shadow: 2px 2px 4px #000000;font-size: 26px;">
-                Select Your Product Here
-            </span>
+<div class="container-fluid" routerLink="/listBrands">
+    <div class="row">
+        <div class="col">
+            <div class="animate__animated animate__pulse  ">
+                <img  src="assets/top_image.png" class="brand-logo" />
+            </div>
         </div>
-
-        <div style="margin: 0 auto;width: 40%;">
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            <div style="float:left;padding: 5px;">
-                <img routerLink="/viewConfig" src="assets/pocoimg_1.jpg"/>
-                <br>
-                POCO M3 PRO
-            </div>
-
-            
-            
-        </div>
-
     </div>
-    
 
-   
+    <div class="row">
+        <div class="col p-0">
+            <div class="brand-color ">
+                <div class="">
+                    <h1 class="text-center p-2"  style="color: white;">SELECT YOUR MOBILE HERE</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row products-cards animate__animated animate__flipInX">
+        <div class="col-6 col-md-3 p-3" routerLink="/viewConfig" *ngFor="let mobile of mobiles">
+            <mat-card style="padding: 5px;" (click)="onClickMobile(mobile);">
+                <div class="mob-tag mob-title">{{mobile.model_name}}</div>
+                <img  src="{{__baseUrl}}{{mobile.image}}"/>
+                
+                <div class="mob-tag mob-mem">{{mobile.ram}} / {{mobile.internal_storage}} GB</div>
+                <div class="mob-tag mob-price">₹ {{mobile.price}} /-</div>
+            </mat-card>
+        </div>
+       
+    </div>
+
+    
 </div>
+
+<app-footer-component></app-footer-component>
+

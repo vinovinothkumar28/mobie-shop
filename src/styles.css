@@ -1,6 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+.brand-color{
+  background-color: royalblue;
+}
 
-@import "~animate.css/animate.min";
+.brand-color-red{
+  background-color: grey;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.res-text{
+  font-size: 22px !important;
+}
+
+.brand-logo{
+  width: 60%;
+  margin: 0 auto;
+  display: block;
+}
+
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.container-fluid{
+
+}
+
+@media (max-width: 575.98px) { 
+
+  .res-text{
+    font-size:13px !important;
+  }
+ }

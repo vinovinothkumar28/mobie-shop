@@ -19,10 +19,10 @@ const routes: Routes = [
     path: '', component: HomeComponent
   },
   {
-    path: 'listProducts', component: ListProductsComponent
+    path: 'listProducts/:brandName', component: ListProductsComponent
   },
   {
-    path: 'viewConfig', component: ViewConfigurationComponent
+    path: 'viewConfig/:id', component: ViewConfigurationComponent
   },
   {
     path: 'compareProducts', component: CompareProductComponent

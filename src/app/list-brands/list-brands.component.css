@@ -1,0 +1,6 @@
+
+.brand-cards mat-card,
+.brand-cards img{
+    margin: 0 auto;
+    display: block;
+}

@@ -19,3 +19,30 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #b30000; 
   }
+
+
+  .products-cards img{
+    max-width: 300px;
+    width: 100%;
+  }
+  .mob-tag{
+    text-align: center;
+    font-weight: normal;
+    padding: 3px;
+    font-weight: bold;
+  }
+
+  .mob-title{
+    color: gray;
+   font-size: 20px;
+
+  }
+  .mob-mem{
+    font-size: 16px;
+    color: grey;
+  }
+  .mob-price{
+    font-size: 20px;
+    color: green;
+  }
+  

@@ -1,185 +1,189 @@
-<div style="max-width: 100%; background: rgb(255, 255, 255); text-align: center;padding: 20px;">
-
-    <div style="position: -webkit-sticky;position: sticky;top: 0;z-index: 5;">
-        <div style="width: 100%;">
-        
-            <div class="animate__animated animate__backInUp ">
-                <span style="  color: rgb(122, 71, 71);text-shadow: 2px 2px 4px #000000;font-size: 26px;">
-                    Mobile Configurations
-                </span>
+<div class="container-fluid">
+    
+    <div class="row">
+        <div class="col">
+            <div class="animate__animated animate__pulse  ">
+                <img  src="assets/top_image.png" class="brand-logo" />
             </div>
-    
-            <div style="margin: 0 auto;width: 40%;">
-                
-                <div>
-                    <table style="width: 100%;">
-                        <tr>
-    
-                            <td>
-                                <img src="assets/pocoimg_1.jpg" class="animate__animated animate__fadeInLeft animate__slower	2s"/>
-                            </td>
-                            <td>
-                                <p>POCO M2 Pro</p>
-                                <br />
-                                <p style="background: green;color: white;">
-                                <span style="padding: 2px;">
-                                    ₹ 15,499/-
-                                </span>
-                            </p>
-                            </td>
-                        </tr>
-    
-                    </table>
-                </div>
-    
-                <div>
-                    <table style="width: 50%;" >
-                        <tr>
-                            <td>
-                                <img src="assets/pocoimg_1.jpg" style="width: 25%;height: 25%;" class="animate__animated animate__fadeIn"/>
-                            </td>
-                            <td>
-                                <img src="assets/pocoimg_1.jpg" style="width: 25%;height: 25%;" class="animate__animated animate__fadeIn"/>
-                            </td>
-                            <td>
-                                <img src="assets/pocoimg_1.jpg" style="width: 25%;height: 25%;" class="animate__animated animate__fadeIn"/>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-    
-                <br />
+        </div>
     </div>
-    
-<!-- Configuratioin Part -->
-            <div style="margin: 0 auto;width: 40%; height: 100;">
-                <table style="width: 100%; font-size: 11px;padding: 5px;">
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX o1 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">Display</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            22 mm
-                        </td>
-                    </tr>
 
-                    <br />
+    <div class="row">
+        <div class="col p-0">
+            <div class="brand-color">
+                <div   >
+                    <h1 class="text-center p-1 res-text"  style="color: white;"> {{configs.model_name}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-around thumbs" >
+        <div class="col-2 scroll-behaviour">
+            <mat-card *ngFor="let pic of pics" (click)="onChangeImage(pic);">
+                <img src="{{__baseUrl}}{{pic}}" width="100%" />       
+            </mat-card>
+            
+        </div>
+        <div class="col-4">
 
-                    
+            <img [src]="imageUrl" width="100%" class="animate__animated animate__fadeInLeft animate__slower" >
+        </div>
+        
+        <div class="col-4">
+            <img src="assets/brand_logo/{{configs.brand_name}}.png" width="100%" >
+            <div style="font-size: 40px;color: green;">
+                {{configs.price | currency:'INR'}}
+            </div>
+<br>
+Colors
+            <div   (click)="onChangeImage('images/P1.png');" style="width: 30px; height: 30px; background-color: green;">
+            </div>
+        </div>
+    </div>
 
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o1 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">Processor</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            Dual
-                        </td>
-                    </tr>
-                    <br />
 
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o2 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">Storage</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            128 GB
-                        </td>
-                    </tr>
-                    <br />
 
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o3 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">RAM</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            8 GB
-                        </td>
-                    </tr>
-                    <br />
 
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o4 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">Camera</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            48 MP + 8 MP + 2 MP
-                        </td>
-                    </tr>
-                    <br />
 
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o5 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">Camera Front</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            16 MP
-                        </td>
-                    </tr>
-                    <br />
 
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o6 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">Battery</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            5000 mAh
-                        </td>
-                    </tr>
-                    <br />
 
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o7 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">Operating System</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            Android v10
-                        </td>
-                    </tr>
-                    <br />
 
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o8 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">Weight</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            165 grams
-                        </td>
-                    </tr>
-                    <br />
+    <div class="row description">
+        <div class="col p-10"> 
 
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o9 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">SIM Slots</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            Dual SIM, GSM+GSM
-                        </td>
-                    </tr>
-                    <br />
-
-                    <tr  style="border-bottom: 1px solid black;" class="animate__animated animate__flipInX  o10 ">
-                        <th style=" background: black; color: white;">
-                            <span style="padding: 20px;">Fingerprint Sensor</span>
-                        </th>
-                        <td style="font-weight:bold;">
-                            Yes
-                        </td>
-                    </tr>
-                    <br />
-
-                    
-                    <br />
-
-                    
-
-                    
-                </table>
+            <div class="row">
+                <div class="col p-0">
+                    <div class="brand-color-red">
+                        <div   >
+                            <h1 class="text-center p-0 res-text"  style="color: white;"> Specifications</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
             
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o1">
+                    Display
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o1">
+                   <div class="animate__animated animate__fadeInRight o1"> {{configs.display}} "</div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o2">
+                   <span> Processor</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o2">
+                   <div class="animate__animated animate__fadeInRight o2"> {{configs.processor}}</div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o3">
+                    <span>Storage</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o3">
+                   <div class="animate__animated animate__fadeInRight o3"> {{configs.internal_storage}} GB</div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o4">
+                  <span> RAM</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o4">
+                   <div class="animate__animated animate__fadeInRight o4"> {{configs.ram}} GB</div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o5">
+                  <span>  Camera</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o5">
+                   <div class="animate__animated animate__fadeInRight o5"> {{configs.camera}}</div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o6">
+                   <span>Camera Front</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o6">
+                  <div class="animate__animated animate__fadeInRight o6">  {{configs.camera_front_pixel}} MP</div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o7">
+                  <span> Battery</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o7">
+                  <div class="animate__animated animate__fadeInRight o7">  {{configs.battery}} mAh</div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o8">
+                <span> Operating System</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o8">
+                  <div class="animate__animated animate__fadeInRight o8">  {{configs.operating_system}}</div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o9">
+                 <span> Weight</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o9">
+                  <div class="animate__animated animate__fadeInRight o9">  {{configs.weight}} Grams</div>
+                </div>
+            </div>
+            <div class="row " >
+                <div class="col-6 text-center animate__animated animate__flipInX o10">
+                  <span>  SIM Slots</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o10">
+                   <div class="animate__animated animate__fadeInRight o10"> {{configs.sim_features}}</div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 text-center animate__animated animate__flipInX o11">
+                  <span>  Fingerprint Sensors</span>
+                </div>
+                <div class="col-6 animate__animated animate__flipInX o11">
+                   <div class="animate__animated animate__fadeInRight o11"> {{configs.fingerprint_sensors}}</div>
+                </div>
+            </div>
+ 
+
+            
+
+
+
         </div>
 
     </div>
+
     
 
-   
 </div>
+
+
+<div class="container-fluid bottom-fix">
+
+    <div class="row  thumbs-h" >
+        <div class="justify-content-around col-12 horizontal-scroll-wrapper">
+            <mat-card *ngFor="let relatedMobile of relatedMobiles" (click)="onClickRelatedMobile(relatedMobile);">
+                <div class="mob-tag mob-title">{{relatedMobile.model_name}}</div>
+                <img src="{{__baseUrl}}{{relatedMobile.image}}" width="100%" />
+                
+                <div class="mob-tag mob-mem">{{relatedMobile.ram}} / {{relatedMobile.internal_storage}} GB</div>
+                <div class="mob-tag mob-price">₹ {{relatedMobile.price}} /-</div>
+                       
+            </mat-card>
+            
+         
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<app-footer-component></app-footer-component>
