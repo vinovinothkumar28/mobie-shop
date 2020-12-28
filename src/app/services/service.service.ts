@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ServiceService {
 
-  public _baseUrl = "http://192.168.0.108/mobile-tracker/";
+  public _baseUrl = "http://192.168.1.100/mobile-tracker/";
 
   constructor( private http:HttpClient ) { }
 
@@ -25,6 +25,10 @@ export class ServiceService {
   mobileconfig(mobile_id)
   {
     return this.http.get<any>(this._baseUrl+"view_mobile_config.php?id="+mobile_id)
+  }
+  mobileCompare(id1,id2)
+  {
+    return this.http.get<any>(this._baseUrl+"mobile_compare.php?id_1="+id1+"&id_2="+id2);
   }
 
 }

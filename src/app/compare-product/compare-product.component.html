@@ -1,199 +1,195 @@
-<div style="max-width: 100%; background: rgb(255, 255, 255); text-align: center;padding: 20px;">
-
-    <div style="position: -webkit-sticky;position: sticky;top: 0;z-index: 5;">
-        <div style="width: 100%;">
-        
-            <div class="animate__animated animate__backInUp ">
-                <span style="  color: rgb(122, 71, 71);text-shadow: 2px 2px 4px #000000;font-size: 26px;">
-                    Mobile Configurations
-                </span>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="animate__animated animate__pulse  ">
+                <img  src="assets/top_image.png" class="brand-logo" />
             </div>
-    
-            <div style="margin: 0 auto;width: 40%;">
-                
-                <div>
-                    <table style="width: 100%;">
-                        <tr>
-    
-                            <td class="animate__animated animate__zoomInLeft animate__slower	2s">
-                                <img src="assets/pocoimg_1.jpg" />
-                                <p>POCO M2 PRO</p>
-                            </td>
-                            <td class="animate__animated animate__zoomInRight animate__slower	2s">
-                                <img src="assets/pocoimg_1.jpg" class="animate__animated animate__fadeInRight"/>
-                                <p>POCO M2 PRO</p>
-                            </td>
-                        </tr>
-    
-                    </table>
-                </div>
-    
-                
-                <br />
+        </div>
     </div>
-    
-<!-- Configuratioin Part -->
-            <div style="margin: 0 auto;width: 40%; height: 100;">
-                <table style="width: 100%; font-size: 11px;padding: 5px;">
-                    <tr  style="border-bottom: 1px solid black;" >
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o1 ">
-                            22 mm
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o1 ">
-                            <span style="padding: 20px;">Display</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o1 ">
-                            22 mm
-                        </td>
-                    </tr>
 
-                    <br />
+    <div class="row">
+        <div class="col p-0">
+            <div class="brand-color">
+                <div   >
+                    <h1 class="text-center p-1 res-text"  style="color: white;">Comparision of  M1 and M2</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    
+    <div class="row">
+        <div class="col-6 text-center">
+             
+                 <img  class="middle animate__animated animate__zoomInLeft animate__slower" width="50%"  [src]="mobile_1_image" />
+                 <p style="font-size: 18px;">{{mobile_1_model}}</p>
+            
+        </div>    
+        <div class="col-6 text-center">
+            <div > 
+                <img class="middle animate__animated animate__zoomInRight animate__slower" width="50%" [src]="mobile_2_image" />
+               <p style="font-size: 18px;">{{mobile_2_model}}</p>
+           </div>
+        </div>
+    </div>
 
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o2 ">
-                            Dual
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o2 ">
-                            <span style="padding: 20px;">Processor</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o2 ">
-                            Dual
-                        </td>
-                    </tr>
-                    <br />
 
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o3 ">
-                            128 GB
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o3 ">
-                            <span style="padding: 20px;">Storage</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o3 ">
-                            128 GB
-                        </td>
-                    </tr>
-                    <br />
+    <div class="row description">
+        <div class="col p-10"> 
 
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o4 ">
-                            8 GB
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o4 ">
-                            <span style="padding: 20px;">RAM</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o4 ">
-                            8 GB
-                        </td>
-                    </tr>
-                    <br />
-
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o5 ">
-                            48 MP + 8 MP + 2 MP
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o5 ">
-                            <span style="padding: 20px;">Camera</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o5 ">
-                            48 MP + 8 MP + 2 MP
-                        </td>
-                    </tr>
-                    <br />
-
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o6 ">
-                            16 MP
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o6 ">
-                            <span style="padding: 20px;">Camera Front</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o6 ">
-                            16 MP
-                        </td>
-                    </tr>
-                    <br />
-
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o7 ">
-                            5000 mAh
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o7 ">
-                            <span style="padding: 20px;">Battery</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o7 ">
-                            5000 mAh
-                        </td>
-                    </tr>
-                    <br />
-
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o8 ">
-                            Android v10
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o8 ">
-                            <span style="padding: 20px;">Operating System</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o8 ">
-                            Android v10
-                        </td>
-                    </tr>
-                    <br />
-
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o9 ">
-                            165 grams
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o9 ">
-                            <span style="padding: 20px;">Weight</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o9 ">
-                            165 grams
-                        </td>
-                    </tr>
-                    <br />
-
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o10 ">
-                            Dual SIM, GSM+GSM
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o10 ">
-                            <span style="padding: 20px;">SIM Slots</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o10 ">
-                            Dual SIM, GSM+GSM
-                        </td>
-                    </tr>
-                    <br />
-
-                    <tr  style="border-bottom: 1px solid black;">
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInLeft  o11 ">
-                            Yes
-                        </td>
-                        <th style=" background: black; color: white;" class="animate__animated animate__flipInX  o11 ">
-                            <span style="padding: 20px;">Fingerprint Sensor</span>
-                        </th>
-                        <td style="font-weight:bold;" class="animate__animated animate__fadeInRight  o11 ">
-                            Yes
-                        </td>
-                    </tr>
-                    <br />
-
-                    
-                    <br />
-
-                    
-
-                    
-                </table>
+            <div class="row">
+                <div class="col p-0">
+                    <div class="brand-color-red">
+                        <div   >
+                            <h1 class="text-center p-0 res-text"  style="color: white;"> Specifications</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
             
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_display}}</div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    Display
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_display}}</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_processor}}</div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    Processor
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_processor}}</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_storage}}</div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    Storage
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1">{{mobile_2_storage}}</div>
+                </div>
+            </div>
+
+
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_ram}}</div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    RAM
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_ram}}</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1">{{mobile_1_camera}} </div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    Camera
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_camera}}</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1">{{mobile_1_cameraFront}} </div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    Camera Front
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_cameraFront}}</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1">{{mobile_1_battery}}</div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    Battery
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1">{{mobile_2_battery}}</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_operatingSystem}}</div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    Operating System
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_operatingSystem}}</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1">{{mobile_1_weight}} </div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    Weight
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_weight}}</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_sim}}</div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    SIM Slots
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_sim}}</div>
+                </div>
+            </div>
+            
+            <div class="row" >
+                <div class="col-4 animate__animated animate__flipInX o1 lr" >
+                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_fingerprint}}</div>
+                 </div>
+                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                    Fingerprint Sensors
+                </div>
+                <div class="col-4 animate__animated animate__flipInX o1 rr">
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_fingerprint}}</div>
+                </div>
+            </div>
+ 
+           
+            
+
+            
+
+
+
         </div>
 
     </div>
-    
 
-   
+
 </div>
+<app-footer-component></app-footer-component>

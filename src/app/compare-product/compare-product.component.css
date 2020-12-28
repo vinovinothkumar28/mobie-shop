@@ -45,3 +45,36 @@
 .o13{
     animation-delay: 14s;
 }
+
+.middle
+{
+    margin: 0 auto;   display: block;
+}
+
+.mr{
+    border-bottom:5px solid #fff;
+    background-color: black;
+    color: #fff;
+    border-radius: 045px 45px 0px 0;
+    font-size: 22px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    }
+ .lr {
+border-bottom:1px solid black;
+font-size: 22px;
+padding-top: 10px;
+padding-bottom: 10px;
+font-weight: bold;
+text-align: right;
+}
+
+.rr{
+    border-bottom:1px solid black;
+    font-size: 22px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+    }

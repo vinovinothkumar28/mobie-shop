@@ -35,9 +35,30 @@
                 {{configs.price | currency:'INR'}}
             </div>
 <br>
-Colors
-            <div   (click)="onChangeImage('images/P1.png');" style="width: 30px; height: 30px; background-color: green;">
+Colors:<br />
+            <div>
+                <div   (click)="onChangeImage(colors.image);" style="height: 20px;width: 30px;margin-left: 10px;border: 1px solid black; float: left;"  *ngFor="let colors of color_pics" [style.background-color]="colors.color">
+                
+                </div>
             </div>
+            <br />
+            <div style="margin-top: 10px;">
+                <!-- <input type="checkbox" [checked]="compare_selected" (ngModelChange)="onChangeCompare(this);">Compare -->
+                <!-- <button mat-flat-button color="accent" *ngIf="!compare_selected" (click)="onChangeCompare(this);">Add To Compare</button>
+                <button mat-button color="accent" *ngIf="compare_selected" (click)="onChangeCompare(this);">Added To Compare</button>
+                 -->
+                 
+                    <label>
+                <mat-checkbox    (ngModelChange)="onClickCompare($event,'1')"></mat-checkbox>
+       
+
+                      </label> 
+                    
+                
+                
+                 
+            </div>
+            
         </div>
     </div>
 

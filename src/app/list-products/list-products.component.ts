@@ -14,7 +14,7 @@ export class ListProductsComponent implements OnInit {
   public brandName;
   public mobiles: any;
 
-  public __baseUrl = "http://192.168.0.108/mobile-tracker/";
+  public __baseUrl = "http://192.168.1.100/mobile-tracker/";
 
   constructor( private _services: ServiceService, public route:ActivatedRoute, private router: Router ) { }
 

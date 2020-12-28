@@ -86,7 +86,7 @@ td, th{
     border-bottom:5px solid #fff;
     background-color: black;
     color: #fff;
-    border-radius: 0 45px 0 0;
+    /* border-radius: 0 45px 0 0; */
     font-size: 22px;
     padding-top: 10px;
     padding-bottom: 10px;

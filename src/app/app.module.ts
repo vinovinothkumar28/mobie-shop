@@ -10,6 +10,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { HomeComponent } from './home/home.component';
 import { MatCommonModule } from '@angular/material/core';
 import { ListProductsComponent } from './list-products/list-products.component';
@@ -17,6 +18,8 @@ import { ViewConfigurationComponent } from './view-configuration/view-configurat
 import { CompareProductComponent } from './compare-product/compare-product.component';
 import { FooterComponentComponent } from './footer-component/footer-component.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule,
+    FormsModule
     
   ],
   providers: [],
