@@ -19,18 +19,44 @@
 
     <div class="row">
         <div class="col-6 text-center">
-             
+
+                <p style="font-size: 18px;color: grey;font-weight: bold;padding: 3px;">{{mobile_1_brand}} - {{mobile_1_model}}</p>
                  <img  class="middle animate__animated animate__zoomInLeft animate__slower" width="50%"  [src]="mobile_1_image" />
-                 <p style="font-size: 18px;">{{mobile_1_model}}</p>
+                
+
+                 <div style="font-size: 32px;color: green;padding: 5px;">
+                    {{mobile_1_price | currency:'INR'}}
+                </div>
+                <br />
+                <span style="float: left;">Colors:</span><br />
+            <div>
+                <div   (click)="onClickMobileImageChange('1',colors.image);" style="height: 20px;width: 30px;margin-left: 10px;border: 1px solid black; float: left;"  *ngFor="let colors of mobile_1_colors" [style.background-color]="colors.color">
+                
+                </div>
+            </div>
+                 
             
         </div>    
         <div class="col-6 text-center">
             <div > 
+                <p style="font-size: 18px;color: grey;font-weight: bold;padding: 3px;">{{mobile_2_brand}} - {{mobile_2_model}}</p>
                 <img class="middle animate__animated animate__zoomInRight animate__slower" width="50%" [src]="mobile_2_image" />
-               <p style="font-size: 18px;">{{mobile_2_model}}</p>
+              
+               <div style="font-size: 32px;color: green;padding: 5px;">
+                {{mobile_2_price | currency:'INR'}}
+                </div>
+                <br />
+               <span style="float: left;">Colors:</span><br />
+            <div>
+                <div   (click)="onClickMobileImageChange('2',colors.image);" style="height: 20px;width: 30px;margin-left: 10px;border: 1px solid black; float: left;"  *ngFor="let colors of mobile_2_colors" [style.background-color]="colors.color">
+                
+                </div>
+            </div>
            </div>
         </div>
     </div>
+
+    <br />
 
 
     <div class="row description">
@@ -48,9 +74,9 @@
             
             <div class="row" >
                 <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_display}}</div>
+                    <div class="animate__animated animate__fadeInLeft o1"> {{mobile_1_display}}</div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o1 mr">
                     Display
                 </div>
                 <div class="col-4 animate__animated animate__flipInX o1 rr">
@@ -59,123 +85,123 @@
             </div>
 
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_processor}}</div>
+                <div class="col-4 animate__animated animate__flipInX o2 lr" >
+                    <div class="animate__animated animate__fadeInLeft o2"> {{mobile_1_processor}}</div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o2 mr">
                     Processor
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_processor}}</div>
+                <div class="col-4 animate__animated animate__flipInX o2 rr">
+                   <div class="animate__animated animate__fadeInRight o2"> {{mobile_2_processor}}</div>
                 </div>
             </div>
 
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_storage}}</div>
+                <div class="col-4 animate__animated animate__flipInX o3 lr" >
+                    <div class="animate__animated animate__fadeInLeft o3"> {{mobile_1_storage}}</div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o3 mr">
                     Storage
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1">{{mobile_2_storage}}</div>
+                <div class="col-4 animate__animated animate__flipInX o3 rr">
+                   <div class="animate__animated animate__fadeInRight o3">{{mobile_2_storage}}</div>
                 </div>
             </div>
 
 
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_ram}}</div>
+                <div class="col-4 animate__animated animate__flipInX o4 lr" >
+                    <div class="animate__animated animate__fadeInLeft o4"> {{mobile_1_ram}}</div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o4 mr">
                     RAM
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_ram}}</div>
+                <div class="col-4 animate__animated animate__flipInX o4 rr">
+                   <div class="animate__animated animate__fadeInRight o4"> {{mobile_2_ram}}</div>
                 </div>
             </div>
 
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1">{{mobile_1_camera}} </div>
+                <div class="col-4 animate__animated animate__flipInX o5 lr" >
+                    <div class="animate__animated animate__fadeInLeft o5">{{mobile_1_camera}} </div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o5 mr">
                     Camera
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_camera}}</div>
+                <div class="col-4 animate__animated animate__flipInX o5 rr">
+                   <div class="animate__animated animate__fadeInRight o5"> {{mobile_2_camera}}</div>
                 </div>
             </div>
 
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1">{{mobile_1_cameraFront}} </div>
+                <div class="col-4 animate__animated animate__flipInX o6 lr" >
+                    <div class="animate__animated animate__fadeInLeft o6">{{mobile_1_cameraFront}} </div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o6 mr">
                     Camera Front
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_cameraFront}}</div>
+                <div class="col-4 animate__animated animate__flipInX o6 rr">
+                   <div class="animate__animated animate__fadeInRight o6"> {{mobile_2_cameraFront}}</div>
                 </div>
             </div>
 
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1">{{mobile_1_battery}}</div>
+                <div class="col-4 animate__animated animate__flipInX o7 lr" >
+                    <div class="animate__animated animate__fadeInLeft o7">{{mobile_1_battery}}</div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o7 mr">
                     Battery
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1">{{mobile_2_battery}}</div>
+                <div class="col-4 animate__animated animate__flipInX o7 rr">
+                   <div class="animate__animated animate__fadeInRight o7">{{mobile_2_battery}}</div>
                 </div>
             </div>
 
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_operatingSystem}}</div>
+                <div class="col-4 animate__animated animate__flipInX o8 lr" >
+                    <div class="animate__animated animate__fadeInLeft o8"> {{mobile_1_operatingSystem}}</div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o8 mr">
                     Operating System
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_operatingSystem}}</div>
+                <div class="col-4 animate__animated animate__flipInX o8 rr">
+                   <div class="animate__animated animate__fadeInRight o8"> {{mobile_2_operatingSystem}}</div>
                 </div>
             </div>
 
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1">{{mobile_1_weight}} </div>
+                <div class="col-4 animate__animated animate__flipInX o9 lr" >
+                    <div class="animate__animated animate__fadeInLeft o9">{{mobile_1_weight}} </div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o9 mr">
                     Weight
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_weight}}</div>
+                <div class="col-4 animate__animated animate__flipInX o9 rr">
+                   <div class="animate__animated animate__fadeInRight o9"> {{mobile_2_weight}}</div>
                 </div>
             </div>
 
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_sim}}</div>
+                <div class="col-4 animate__animated animate__flipInX o10 lr" >
+                    <div class="animate__animated animate__fadeInLeft o10"> {{mobile_1_sim}}</div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o10 mr">
                     SIM Slots
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_sim}}</div>
+                <div class="col-4 animate__animated animate__flipInX o10 rr">
+                   <div class="animate__animated animate__fadeInRight o10"> {{mobile_2_sim}}</div>
                 </div>
             </div>
             
             <div class="row" >
-                <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_fingerprint}}</div>
+                <div class="col-4 animate__animated animate__flipInX o11 lr" >
+                    <div class="animate__animated animate__fadeInLeft o11"> {{mobile_1_fingerprint}}</div>
                  </div>
-                <div class="col-4 text-center animate__animated animate__flipInX o1 mr">
+                <div class="col-4 text-center animate__animated animate__backInUp o11 mr">
                     Fingerprint Sensors
                 </div>
-                <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_fingerprint}}</div>
+                <div class="col-4 animate__animated animate__flipInX o11 rr">
+                   <div class="animate__animated animate__fadeInRight o11"> {{mobile_2_fingerprint}}</div>
                 </div>
             </div>
  
@@ -192,4 +218,8 @@
 
 
 </div>
-<app-footer-component></app-footer-component>
+
+
+<div class="animate__animated animate__fadeIn o12">
+    <app-footer-component></app-footer-component>
+</div>

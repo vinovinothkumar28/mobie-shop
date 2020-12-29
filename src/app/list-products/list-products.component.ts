@@ -13,12 +13,14 @@ import { ServiceService } from '../services/service.service';
 export class ListProductsComponent implements OnInit {
   public brandName;
   public mobiles: any;
+  compareMobiles:any;
 
   public __baseUrl = "http://192.168.1.100/mobile-tracker/";
 
   constructor( private _services: ServiceService, public route:ActivatedRoute, private router: Router ) { }
 
   ngOnInit(): void {
+    this.compareMobiles = JSON.parse(window.localStorage.getItem("compareItems"));
     this.getMobiles();
   }
 
@@ -39,6 +41,11 @@ export class ListProductsComponent implements OnInit {
   {
     //alert(category);
     this.router.navigate(['/viewConfig',mobile.id]);
+  }
+
+  comp(mid)
+  {
+    return this.compareMobiles.includes(mid);
   }
 
 

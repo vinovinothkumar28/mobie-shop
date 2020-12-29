@@ -42,17 +42,20 @@ Colors:<br />
                 </div>
             </div>
             <br />
-            <div style="margin-top: 10px;">
-                <!-- <input type="checkbox" [checked]="compare_selected" (ngModelChange)="onChangeCompare(this);">Compare -->
-                <!-- <button mat-flat-button color="accent" *ngIf="!compare_selected" (click)="onChangeCompare(this);">Add To Compare</button>
-                <button mat-button color="accent" *ngIf="compare_selected" (click)="onChangeCompare(this);">Added To Compare</button>
-                 -->
+            <div style="margin-top: 25px;">
+               
                  
-                    <label>
-                <mat-checkbox    (ngModelChange)="onClickCompare($event,'1')"></mat-checkbox>
+                   
+                 <mat-checkbox [(ngModel)]="checked"   (ngModelChange)="onClickCompare($event)"><span style="font-size: 18px;">Compare</span></mat-checkbox>
+
+                 <!-- <mat-checkbox [(ngModel)]="sub2"   (ngModelChange)="onClickCompare($event)">Comp 2</mat-checkbox> -->
+
+                 <!-- <mat-checkbox    (click)="onClickCompare($event)">Comp 1</mat-checkbox>
+
+                 <mat-checkbox    (click)="onClickCompare($event)">Comp 2</mat-checkbox> -->
        
 
-                      </label> 
+                
                     
                 
                 

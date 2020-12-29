@@ -11,6 +11,15 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    let localStore = localStorage.getItem("compareItems");
+    if(localStore == null)
+    {
+      let data = [];
+      window.localStorage.setItem("compareItems",JSON.stringify(data));
+    }
+    //console.log( JSON.parse(window.localStorage.getItem("compareItems")).length );
+
   }
 
 }

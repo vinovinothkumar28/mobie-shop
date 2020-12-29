@@ -11,5 +11,5 @@
 
 <div style="position: fixed; right:5px; bottom: 5px;">
   
-    <button mat-raised-button color="accent" style="border-radius:50px;">Compare [ 1 ]</button>
+    <button mat-raised-button color="accent" style="border-radius:50px;" [disabled]="count2" *ngIf="count1"  routerLink="/compareProducts">Compare [ {{compareDeviceCount}} ]</button>
 </div>

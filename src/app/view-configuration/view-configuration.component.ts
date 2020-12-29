@@ -10,10 +10,17 @@ import { ServiceService } from '../services/service.service';
 })
 export class ViewConfigurationComponent implements OnInit {
 
-  dummy ="1,2,3,";
+  dummy =[];
+  
 
-  check_compare:any;
-  compare_selected = false;
+
+  d1:any;
+  // sub1:[];
+  // sub2;
+
+  checked=false;
+  compare_array = [];
+
 
   pics:any;
   public color_pics:any;
@@ -28,6 +35,8 @@ export class ViewConfigurationComponent implements OnInit {
   constructor( private route: ActivatedRoute, private _services: ServiceService ) { }
 
   ngOnInit(): void { 
+
+
     let id = this.route.snapshot.paramMap.get('id');  
     this.getMobileConfig(id);
    
@@ -37,16 +46,6 @@ export class ViewConfigurationComponent implements OnInit {
   getMobileConfig(id)
   {
    
-    // let comp = window.localStorage.getItem("compareId");
-    // if(comp != null)
-    // {
-    //   this.check_compare = JSON.parse(comp);
-    //   this.compare_selected = this.check_compare.includes(id);
-    // }
-    // else{
-    //   window.localStorage.setItem("compareId",JSON.stringify(""));
-    // }
-  
     this._services.mobileconfig(id).subscribe((data: any )=>  {
 
       this.configs = data.specs;
@@ -58,7 +57,19 @@ export class ViewConfigurationComponent implements OnInit {
       //console.log(this.color_pics);
       this.getMobiles(data.specs.brand_name);
       this.mobile_id = id;
+
+      if( (JSON.parse(window.localStorage.getItem("compareItems"))).includes(id) )
+      {
+        this.checked = true;
+      }
+      else{
+        this.checked = false;
+      }
+
+
+
     });
+
   }
 
   onChangeImage(pic)
@@ -82,12 +93,65 @@ export class ViewConfigurationComponent implements OnInit {
     this.getMobileConfig(mobile.id);
   }
 
-  onClickCompare(event,mobileid)
+  onClickCompare(event)
   {
-    //this.filter = !this.filter;
-    alert(event + mobileid);
+  //   if(JSON.parse(localStorage.getItem("dummy"))==null)
+  //   alert("Compare [0]");
+  //  else
+  //   alert("Compare ["+JSON.parse(localStorage.getItem("dummy")).length+"]");
+    
 
-    localStorage.setItem("compareItems",JSON.stringify(mobileid));
+    if(event)
+    {
+      let dum1 = (window.localStorage.getItem("compareItems"));
+      this.compare_array = JSON.parse(dum1);
+      console.log(this.compare_array);
+      if(this.compare_array.length < 2)
+      {
+        this.compare_array.push(""+this.mobile_id);
+        window.localStorage.setItem("compareItems",JSON.stringify(this.compare_array));
+      }
+      else
+      {
+        this.checked = false;
+        alert("only 2 mobs are allowed to compare");
+
+      }
+      
+    }
+    else
+    {
+      this.compare_array = JSON.parse(window.localStorage.getItem("compareItems"));
+      if(this.compare_array.length == 1)
+      {
+        this.compare_array.pop();
+      }
+      else{
+        
+        this.compare_array.splice((this.compare_array.indexOf(this.mobile_id),1));
+      }
+     
+      window.localStorage.setItem("compareItems",JSON.stringify(this.compare_array));
+      this.checked= false;
+      
+    }
+    //this.filter = !this.filter;
+    // alert(event + mobileid);
+    
+    //  this.dummy.push(mobileid);
+    //  localStorage.setItem("dummy",JSON.stringify(this.dummy));
+ 
+//     if(parseInt(localStorage.getItem("CompareCount"))==0 || localStorage.getItem("CompareCount")==null)
+//     {localStorage.setItem("CompareMobile1",JSON.stringify(mobileid));
+//     localStorage.setItem("CompareCount",JSON.stringify(1));
+//   }
+//     else if(parseInt(localStorage.getItem("CompareCount"))==1)
+//    { localStorage.setItem("CompareMobile2",JSON.stringify(mobileid));
+//     localStorage.setItem("CompareCount",JSON.stringify(2));
+// }else
+// { alert("count exited"); }
+
+
      
   }
 

@@ -10,6 +10,8 @@ export class CompareProductComponent implements OnInit {
 
   _baseUrl = "http://192.168.1.100/mobile-tracker/";
 
+  compare_array;
+
   public mobile_1:any;
   public mobile_2:any;
 
@@ -25,7 +27,10 @@ export class CompareProductComponent implements OnInit {
   mobile_1_weight;
   mobile_1_sim;
   mobile_1_fingerprint;
+  mobile_1_price;
+  mobile_1_brand;
   mobile_1_image;
+  mobile_1_colors;
 
 
   mobile_2_model;
@@ -40,7 +45,10 @@ export class CompareProductComponent implements OnInit {
   mobile_2_weight;
   mobile_2_sim;
   mobile_2_fingerprint;
+  mobile_2_price;
+  mobile_2_brand;
   mobile_2_image;
+  mobile_2_colors;
 
 
 
@@ -52,7 +60,9 @@ export class CompareProductComponent implements OnInit {
 
   getcompare()
   {
-    this._services.mobileCompare('1','2').subscribe((data: any )=>  {
+    this.compare_array = JSON.parse(window.localStorage.getItem("compareItems"));
+
+    this._services.mobileCompare(this.compare_array[0],this.compare_array[1]).subscribe((data: any )=>  {
 
         console.log(data);
 
@@ -69,6 +79,10 @@ export class CompareProductComponent implements OnInit {
        this.mobile_1_weight = data.mobile_1.weight;
        this.mobile_1_sim = data.mobile_1.sim_features;
        this.mobile_1_fingerprint = data.mobile_1.fingerprint;
+       this.mobile_1_price = data.mobile_1.price;
+       this.mobile_1_brand = data.mobile_1.brand_name;
+       this.mobile_1_colors = data.mobile_1.color_pics;
+
       // this.mobile_1_image = data.mobile_1.image;
 
 
@@ -84,6 +98,9 @@ export class CompareProductComponent implements OnInit {
        this.mobile_2_weight = data.mobile_2.weight;
        this.mobile_2_sim = data.mobile_2.sim_features;
        this.mobile_2_fingerprint = data.mobile_2.fingerprint;
+       this.mobile_2_price = data.mobile_2.price;
+       this.mobile_2_brand = data.mobile_2.brand_name;
+       this.mobile_2_colors = data.mobile_2.color_pics;
       // this.mobile_2_image = data.mobile_2.image;
 
 
@@ -99,6 +116,19 @@ export class CompareProductComponent implements OnInit {
 
 
     });
+  }
+
+  onClickMobileImageChange(mob,img:any)
+  {
+    if(mob=="1")
+    {
+      this.mobile_1_image = this._baseUrl+img;
+    }
+    else
+    {
+      this.mobile_2_image = this._baseUrl+img;
+    }
+    
   }
 
 

@@ -19,13 +19,13 @@
 
     
     <div class="row products-cards animate__animated animate__flipInX">
-        <div class="col-6 col-md-3 p-3" routerLink="/viewConfig" *ngFor="let mobile of mobiles">
+        <div class="col-6 col-md-3 p-3" *ngFor="let mobile of mobiles">
             <mat-card style="padding: 5px;" (click)="onClickMobile(mobile);">
                 <div class="mob-tag mob-title">{{mobile.model_name}}</div>
                 <img  src="{{__baseUrl}}{{mobile.image}}"/>
                 
                 <div class="mob-tag mob-mem">{{mobile.ram}} / {{mobile.internal_storage}} GB</div>
-                <div class="mob-tag mob-price">₹ {{mobile.price}} /-</div>
+                <div class="mob-tag mob-price">{{mobile.price | currency:'INR'}} /- </div>
             </mat-card>
         </div>
        
