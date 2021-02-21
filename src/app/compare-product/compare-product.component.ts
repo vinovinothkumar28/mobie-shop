@@ -8,7 +8,7 @@ import { ServiceService } from '../services/service.service';
 })
 export class CompareProductComponent implements OnInit {
 
-  _baseUrl = "http://192.168.1.100/mobile-tracker/";
+  _baseUrl = "http://localhost/mobile-tracker/";
 
   compare_array;
 
@@ -66,6 +66,7 @@ export class CompareProductComponent implements OnInit {
 
         console.log(data);
 
+        
 
        this.mobile_1_model = data.mobile_1.model_name;
        this.mobile_1_display = data.mobile_1.display;

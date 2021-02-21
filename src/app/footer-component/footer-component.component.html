@@ -6,10 +6,32 @@
 
 <div style="position: fixed; left: 5px; bottom: 5px;">
   
-    <button mat-raised-button (click)="goBack();"style="border-radius:50px;" color="primary">Back</button>
+    <button mat-icon-button (click)="goBack();" style="background: blue;"><mat-icon style="transform: scale(2);color: white;">arrow_back</mat-icon></button>
 </div>
 
 <div style="position: fixed; right:5px; bottom: 5px;">
   
-    <button mat-raised-button color="accent" style="border-radius:50px;" [disabled]="count2" *ngIf="count1"  routerLink="/compareProducts">Compare [ {{compareDeviceCount}} ]</button>
+    <button (click)="getmobilename();" mat-raised-button color="accent" style="border-radius:50px;" routerLink="/compareProducts"  [disabled]="count2" *ngIf="count1"  >Compare [ {{compareDeviceCount}} ]</button>
+    <button (click)="getmobilename();" mat-icon-button color="accent" style="border-radius:50px;" [matMenuTriggerFor]="aboveMenu"  *ngIf="count1"  ><mat-icon style="transform: scale(2);">arrow_drop_up</mat-icon></button>
 </div>
+
+<!-- <button mat-button [matMenuTriggerFor]="aboveMenu">Above</button> -->
+<mat-menu #aboveMenu="matMenu" yPosition="above" xPosition="before">
+    <!-- <p style="padding: 5px; text-align: center;">Itenqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq 1 <mat-icon style="float: right;">cancel</mat-icon></p> -->
+
+    <div *ngFor="let mobile of mobiles">
+
+      <p style="padding: 5px;"> <mat-checkbox  [checked]="compareMobiles.includes(mobile.id)" name="{{mobile.id}}" (click)="campareOnClick($event,mobile.id);"  (change)="onClickCompare($event,mobile.id)">
+            <span style="font-size: 12px;padding: 5px;">{{mobile.brand_name}} - {{mobile.model_name}}</span></mat-checkbox> 
+        </p> 
+    
+    
+    </div>
+    <div>
+       <p (click)=" onClickClearAll();"> <button mat-icon-button><mat-icon color="accent" >cancel</mat-icon></button>Clear All </p>
+    </div>
+    
+   
+    
+    <!-- <p style="padding: 5px;justify-content: center;"><button routerLink="/compareProducts" mat-raised-button color="primary">Compare</button></p> -->
+</mat-menu> 

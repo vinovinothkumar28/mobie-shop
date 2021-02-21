@@ -1,8 +1,9 @@
-<div class="container-fluid" routerLink="/listBrands">
-    <div class="row">
+<div class="container-fluid">
+    <div class="row"  routerLink="/">
         <div class="col">
             <div class="animate__animated animate__pulse  ">
-                <img  src="assets/top_image.png" class="brand-logo" />
+                <img  src="assets/top_image.png"  style="width:60%;margin-left: 0;"/>
+                <img src="assets/brand_logo/{{brandName}}.png"  style="width: 40%;">
             </div>
         </div>
     </div>
@@ -20,12 +21,24 @@
     
     <div class="row products-cards animate__animated animate__flipInX">
         <div class="col-6 col-md-3 p-3" *ngFor="let mobile of mobiles">
-            <mat-card style="padding: 5px;" (click)="onClickMobile(mobile);">
+            <mat-card style="padding: 5px;">
                 <div class="mob-tag mob-title">{{mobile.model_name}}</div>
-                <img  src="{{__baseUrl}}{{mobile.image}}"/>
+                <img (click)="onClickMobile(mobile);" src="{{__baseUrl}}{{mobile.image}}"/>
                 
                 <div class="mob-tag mob-mem">{{mobile.ram}} / {{mobile.internal_storage}} GB</div>
-                <div class="mob-tag mob-price">{{mobile.price | currency:'INR'}} /- </div>
+                <div class="mob-tag mob-price">₹ {{mobile.price}} /- </div>
+                <div>
+ 
+<!-- <mat-checkbox  [checked]="JSON.parse(window.localStorage.getItem('compareItems')).includes(mobile.id)" name="{{mobile.id}}" (click)="campareOnClick($event,mobile.id);"  (change)="onClickCompare($event,mobile.id)">
+                              <span style="font-size: 18px;">Compare </span></mat-checkbox>  -->
+                    
+
+                              <mat-checkbox  [checked]="compareMobiles.includes(mobile.id)" name="{{mobile.id}}" (click)="campareOnClick($event,mobile.id);"  (change)="onClickCompare($event,mobile.id)">
+                                <span style="font-size: 18px;">Compare </span></mat-checkbox> 
+                   
+
+                    <!-- <mat-checkbox id="{{mobile.id}}" name="mobile.model_name" [checked]="compareMobiles.includes(mobile.id)"  (change)="onClickCompare($event,mobile.id)"><span style="font-size: 18px;">Remove Compare</span></mat-checkbox> -->
+                </div>
             </mat-card>
         </div>
        

@@ -1,7 +1,9 @@
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DialogExampleComponent } from '../dialog-example/dialog-example.component';
 import { ServiceService } from '../services/service.service';
-
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -12,27 +14,61 @@ import { ServiceService } from '../services/service.service';
 })
 export class ListProductsComponent implements OnInit {
   public brandName;
+  
+  compareMobiles= JSON.parse(window.localStorage.getItem("compareItems"));     
+  
+   
+   mobile:any; 
   public mobiles: any;
-  compareMobiles:any;
+  
 
-  public __baseUrl = "http://192.168.1.100/mobile-tracker/";
+  public __baseUrl = "http://localhost/mobile-tracker/";
 
-  constructor( private _services: ServiceService, public route:ActivatedRoute, private router: Router ) { }
+  constructor(  private _services: ServiceService, public route:ActivatedRoute, private router: Router, private dialog: MatDialog ) { }
 
   ngOnInit(): void {
+
+    let localStore = localStorage.getItem("compareItems");
+    if(localStore == null)
+    {
+      let data = [];
+      window.localStorage.setItem("compareItems",JSON.stringify(data));
+    }
     this.compareMobiles = JSON.parse(window.localStorage.getItem("compareItems"));
+
+    setInterval(() =>{
+     
+      
+      let dum1 = (window.localStorage.getItem("compareItems"));
+      this.compareMobiles = JSON.parse(dum1);
+      //this.getmobilename();
+      
+
+    },1000);
+    
+     
     this.getMobiles();
+
   }
 
- 
+selectmobile()
+{ 
+   this.mobile[1]=true;
+
+} 
 
   getMobiles()
   {
+   
+
+
     let bname = this.route.snapshot.paramMap.get('brandName');
     this.brandName = bname;
+    window.localStorage.setItem("selectedBrand",this.brandName);
     this._services.getMobiles(this.brandName).subscribe((data: any )=>  {
-      //console.log(data);
+      
       this.mobiles = data;
+     // console.log(this.mobiles);
 
     });
   }
@@ -43,32 +79,54 @@ export class ListProductsComponent implements OnInit {
     this.router.navigate(['/viewConfig',mobile.id]);
   }
 
-  comp(mid)
+
+  campareOnClick(e,mid1)
+  { 
+    
+    let dum1 = JSON.parse(window.localStorage.getItem("compareItems"));
+    // console.log("a"+dum1.includes(mid1)+"as"+dum1.length);
+    if(!dum1.includes(mid1) && dum1.length>=2)
+    { e.preventDefault(); 
+      let msg = "You Can't Compare More Than Two Mobiles..";
+        this.dialog.open(DialogExampleComponent, {data: {message: msg}});
+    }
+
+  }
+
+  onClickCompare(event,mid)
   {
-    return this.compareMobiles.includes(mid);
+ 
+    if(event.checked)
+    {
+      let dum1 = (window.localStorage.getItem("compareItems"));
+      this.compareMobiles = JSON.parse(dum1);
+        
+      if(this.compareMobiles.length < 2)
+      {
+        this.compareMobiles.push(mid);
+       
+        window.localStorage.setItem("compareItems",JSON.stringify(this.compareMobiles));
+
+        this.compareMobiles = JSON.parse(window.localStorage.getItem("compareItems"));
+
+      }  
+    }
+    else
+    {
+      this.compareMobiles = JSON.parse(window.localStorage.getItem("compareItems"));
+      let current_postion=this.compareMobiles.indexOf(mid);
+   
+      this.compareMobiles.splice(this.compareMobiles.indexOf(mid),1);
+     
+      window.localStorage.setItem("compareItems",JSON.stringify(this.compareMobiles));
+      this.compareMobiles = JSON.parse(window.localStorage.getItem("compareItems"));
+     
+            
+    }
+  
   }
 
 
 
-  // members: {title: string, subtitle: string, content: string, url: string}[] = [
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  //   {title: 'Title', subtitle: 'Subtitle', content: 'Content here', url: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  // ];
 
 }

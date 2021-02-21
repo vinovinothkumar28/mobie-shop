@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <div class="animate__animated animate__pulse  ">
+            <div class="animate__animated animate__pulse  " routerLink="/">
                 <img  src="assets/top_image.png" class="brand-logo" />
             </div>
         </div>
@@ -11,7 +11,7 @@
         <div class="col p-0">
             <div class="brand-color">
                 <div   >
-                    <h1 class="text-center p-1 res-text"  style="color: white;">Comparision of  M1 and M2</h1>
+                    <h1 class="text-center p-1 res-text"  style="color: white;font-size: 10px;">Comparision of <span style="color: yellow"> {{mobile_1_brand}}-{{mobile_1_model}} </span> Vs  <span style="color: yellow;">{{mobile_2_brand}}-{{mobile_2_model}}</span></h1>
                 </div>
             </div>
         </div>
@@ -25,12 +25,12 @@
                 
 
                  <div style="font-size: 32px;color: green;padding: 5px;">
-                    {{mobile_1_price | currency:'INR'}}
+                   ₹ {{mobile_1_price}}
                 </div>
                 <br />
-                <span style="float: left;">Colors:</span><br />
+                <span style="float: left;">Available Colors:</span><br />
             <div>
-                <div   (click)="onClickMobileImageChange('1',colors.image);" style="height: 20px;width: 30px;margin-left: 10px;border: 1px solid black; float: left;"  *ngFor="let colors of mobile_1_colors" [style.background-color]="colors.color">
+                <div   (click)="onClickMobileImageChange('1',colors.image);" style="height: 20px;width: 30px;margin-left: 10px;border: 1px solid black; float: left;"  *ngFor="let colors of mobile_1_colors" style="background: #{{colors.color}}">
                 
                 </div>
             </div>
@@ -43,12 +43,12 @@
                 <img class="middle animate__animated animate__zoomInRight animate__slower" width="50%" [src]="mobile_2_image" />
               
                <div style="font-size: 32px;color: green;padding: 5px;">
-                {{mobile_2_price | currency:'INR'}}
+               ₹ {{mobile_2_price}}
                 </div>
                 <br />
-               <span style="float: left;">Colors:</span><br />
+               <span style="float: left;">Available Colors:</span><br />
             <div>
-                <div   (click)="onClickMobileImageChange('2',colors.image);" style="height: 20px;width: 30px;margin-left: 10px;border: 1px solid black; float: left;"  *ngFor="let colors of mobile_2_colors" [style.background-color]="colors.color">
+                <div   (click)="onClickMobileImageChange('2',colors.image);" style="height: 20px;width: 30px;margin-left: 10px;border: 1px solid black; float: left;"  *ngFor="let colors of mobile_2_colors" style="background: #{{colors.color}}">
                 
                 </div>
             </div>
@@ -74,13 +74,13 @@
             
             <div class="row" >
                 <div class="col-4 animate__animated animate__flipInX o1 lr" >
-                    <div class="animate__animated animate__fadeInLeft o1"> {{mobile_1_display}}</div>
+                    <div class="animate__animated animate__fadeInLeft o1"> {{mobile_1_display}} "</div>
                  </div>
                 <div class="col-4 text-center animate__animated animate__backInUp o1 mr">
-                    Display
+                   <span > Display</span>
                 </div>
                 <div class="col-4 animate__animated animate__flipInX o1 rr">
-                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_display}}</div>
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_2_display}} "</div>
                 </div>
             </div>
 
@@ -98,26 +98,26 @@
 
             <div class="row" >
                 <div class="col-4 animate__animated animate__flipInX o3 lr" >
-                    <div class="animate__animated animate__fadeInLeft o3"> {{mobile_1_storage}}</div>
+                    <div class="animate__animated animate__fadeInLeft o3"> {{mobile_1_storage}} GB</div>
                  </div>
                 <div class="col-4 text-center animate__animated animate__backInUp o3 mr">
                     Storage
                 </div>
                 <div class="col-4 animate__animated animate__flipInX o3 rr">
-                   <div class="animate__animated animate__fadeInRight o3">{{mobile_2_storage}}</div>
+                   <div class="animate__animated animate__fadeInRight o3">{{mobile_2_storage}} GB</div>
                 </div>
             </div>
 
 
             <div class="row" >
                 <div class="col-4 animate__animated animate__flipInX o4 lr" >
-                    <div class="animate__animated animate__fadeInLeft o4"> {{mobile_1_ram}}</div>
+                    <div class="animate__animated animate__fadeInLeft o4"> {{mobile_1_ram}} GB</div>
                  </div>
                 <div class="col-4 text-center animate__animated animate__backInUp o4 mr">
                     RAM
                 </div>
                 <div class="col-4 animate__animated animate__flipInX o4 rr">
-                   <div class="animate__animated animate__fadeInRight o4"> {{mobile_2_ram}}</div>
+                   <div class="animate__animated animate__fadeInRight o4"> {{mobile_2_ram}} GB</div>
                 </div>
             </div>
 
@@ -126,7 +126,7 @@
                     <div class="animate__animated animate__fadeInLeft o5">{{mobile_1_camera}} </div>
                  </div>
                 <div class="col-4 text-center animate__animated animate__backInUp o5 mr">
-                    Camera
+                   <div class="dispTag"> Camera</div>
                 </div>
                 <div class="col-4 animate__animated animate__flipInX o5 rr">
                    <div class="animate__animated animate__fadeInRight o5"> {{mobile_2_camera}}</div>
@@ -135,25 +135,25 @@
 
             <div class="row" >
                 <div class="col-4 animate__animated animate__flipInX o6 lr" >
-                    <div class="animate__animated animate__fadeInLeft o6">{{mobile_1_cameraFront}} </div>
+                    <div class="animate__animated animate__fadeInLeft o6">{{mobile_1_cameraFront}}  MP</div>
                  </div>
                 <div class="col-4 text-center animate__animated animate__backInUp o6 mr">
                     Camera Front
                 </div>
                 <div class="col-4 animate__animated animate__flipInX o6 rr">
-                   <div class="animate__animated animate__fadeInRight o6"> {{mobile_2_cameraFront}}</div>
+                   <div class="animate__animated animate__fadeInRight o6"> {{mobile_2_cameraFront}} MP</div>
                 </div>
             </div>
 
             <div class="row" >
                 <div class="col-4 animate__animated animate__flipInX o7 lr" >
-                    <div class="animate__animated animate__fadeInLeft o7">{{mobile_1_battery}}</div>
+                    <div class="animate__animated animate__fadeInLeft o7">{{mobile_1_battery}} mAh</div>
                  </div>
                 <div class="col-4 text-center animate__animated animate__backInUp o7 mr">
                     Battery
                 </div>
                 <div class="col-4 animate__animated animate__flipInX o7 rr">
-                   <div class="animate__animated animate__fadeInRight o7">{{mobile_2_battery}}</div>
+                   <div class="animate__animated animate__fadeInRight o7">{{mobile_2_battery}} mAh</div>
                 </div>
             </div>
 
@@ -171,13 +171,13 @@
 
             <div class="row" >
                 <div class="col-4 animate__animated animate__flipInX o9 lr" >
-                    <div class="animate__animated animate__fadeInLeft o9">{{mobile_1_weight}} </div>
+                    <div class="animate__animated animate__fadeInLeft o9">{{mobile_1_weight}} grams</div>
                  </div>
                 <div class="col-4 text-center animate__animated animate__backInUp o9 mr">
                     Weight
                 </div>
                 <div class="col-4 animate__animated animate__flipInX o9 rr">
-                   <div class="animate__animated animate__fadeInRight o9"> {{mobile_2_weight}}</div>
+                   <div class="animate__animated animate__fadeInRight o9"> {{mobile_2_weight}} grams</div>
                 </div>
             </div>
 

@@ -1,6 +1,6 @@
 <div class="container-fluid">
     
-    <div class="row">
+    <div class="row"  routerLink="/">
         <div class="col">
             <div class="animate__animated animate__pulse  ">
                 <img  src="assets/top_image.png" class="brand-logo" />
@@ -12,7 +12,7 @@
         <div class="col p-0">
             <div class="brand-color">
                 <div   >
-                    <h1 class="text-center p-1 res-text"  style="color: white;"> {{configs.model_name}}</h1>
+                    <h1 class="text-center p-1 res-text"  style="color: white;"> {{mobile_1_model}}</h1>
                 </div>
             </div>
         </div>
@@ -30,15 +30,15 @@
         </div>
         
         <div class="col-4">
-            <img src="assets/brand_logo/{{configs.brand_name}}.png" width="100%" >
+            <img src="assets/brand_logo/{{mobile_1_brand}}.png" width="100%" >
             <div style="font-size: 40px;color: green;">
-                {{configs.price | currency:'INR'}}
+              ₹  {{mobile_1_price}}
             </div>
 <br>
-Colors:<br />
+Available Colors:<br />
             <div>
-                <div   (click)="onChangeImage(colors.image);" style="height: 20px;width: 30px;margin-left: 10px;border: 1px solid black; float: left;"  *ngFor="let colors of color_pics" [style.background-color]="colors.color">
-                
+                <div   (click)="onChangeImage(colors.image);" style="height: 20px;width: 30px;margin-left: 10px;border: 1px solid black; float: left;"  *ngFor="let colors of color_pics" style="background: #{{colors.color}};">
+                <!-- [style.background-color]="colors.color" -->
                 </div>
             </div>
             <br />
@@ -46,19 +46,10 @@ Colors:<br />
                
                  
                    
-                 <mat-checkbox [(ngModel)]="checked"   (ngModelChange)="onClickCompare($event)"><span style="font-size: 18px;">Compare</span></mat-checkbox>
+                 <!-- <mat-checkbox [(ngModel)]="checked"   (ngModelChange)="onClickCompare($event)"><span style="font-size: 18px;">Compare</span></mat-checkbox> -->
 
-                 <!-- <mat-checkbox [(ngModel)]="sub2"   (ngModelChange)="onClickCompare($event)">Comp 2</mat-checkbox> -->
-
-                 <!-- <mat-checkbox    (click)="onClickCompare($event)">Comp 1</mat-checkbox>
-
-                 <mat-checkbox    (click)="onClickCompare($event)">Comp 2</mat-checkbox> -->
-       
-
-                
-                    
-                
-                
+                 <mat-checkbox  [checked]="compareMobiles.includes(mobile_id)" name="{{mobile_id}}" (click)="campareOnClick($event,mobile_id);"  (change)="onClickCompare($event,mobile_id)">
+                    <span style="font-size: 18px;">Compare </span></mat-checkbox> 
                  
             </div>
             
@@ -90,7 +81,7 @@ Colors:<br />
                     Display
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o1">
-                   <div class="animate__animated animate__fadeInRight o1"> {{configs.display}} "</div>
+                   <div class="animate__animated animate__fadeInRight o1"> {{mobile_1_display}} "</div>
                 </div>
             </div>
             <div class="row" >
@@ -98,7 +89,7 @@ Colors:<br />
                    <span> Processor</span>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o2">
-                   <div class="animate__animated animate__fadeInRight o2"> {{configs.processor}}</div>
+                   <div class="animate__animated animate__fadeInRight o2"> {{mobile_1_processor}}</div>
                 </div>
             </div>
             <div class="row" >
@@ -106,7 +97,7 @@ Colors:<br />
                     <span>Storage</span>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o3">
-                   <div class="animate__animated animate__fadeInRight o3"> {{configs.internal_storage}} GB</div>
+                   <div class="animate__animated animate__fadeInRight o3"> {{mobile_1_storage}} GB</div>
                 </div>
             </div>
             <div class="row" >
@@ -114,15 +105,15 @@ Colors:<br />
                   <span> RAM</span>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o4">
-                   <div class="animate__animated animate__fadeInRight o4"> {{configs.ram}} GB</div>
+                   <div class="animate__animated animate__fadeInRight o4"> {{mobile_1_ram}} GB</div>
                 </div>
             </div>
             <div class="row" >
                 <div class="col-6 text-center animate__animated animate__flipInX o5">
-                  <span>  Camera</span>
+                  <div style="padding-top: 10px;">  Camera</div>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o5">
-                   <div class="animate__animated animate__fadeInRight o5"> {{configs.camera}}</div>
+                   <div class="animate__animated animate__fadeInRight o5"> {{mobile_1_camera}}</div>
                 </div>
             </div>
             <div class="row" >
@@ -130,7 +121,7 @@ Colors:<br />
                    <span>Camera Front</span>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o6">
-                  <div class="animate__animated animate__fadeInRight o6">  {{configs.camera_front_pixel}} MP</div>
+                  <div class="animate__animated animate__fadeInRight o6">  {{mobile_1_cameraFront}} MP</div>
                 </div>
             </div>
             <div class="row" >
@@ -138,7 +129,7 @@ Colors:<br />
                   <span> Battery</span>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o7">
-                  <div class="animate__animated animate__fadeInRight o7">  {{configs.battery}} mAh</div>
+                  <div class="animate__animated animate__fadeInRight o7">  {{mobile_1_battery}} mAh</div>
                 </div>
             </div>
             <div class="row" >
@@ -146,7 +137,7 @@ Colors:<br />
                 <span> Operating System</span>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o8">
-                  <div class="animate__animated animate__fadeInRight o8">  {{configs.operating_system}}</div>
+                  <div class="animate__animated animate__fadeInRight o8">  {{mobile_1_operatingSystem}}</div>
                 </div>
             </div>
             <div class="row" >
@@ -154,7 +145,7 @@ Colors:<br />
                  <span> Weight</span>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o9">
-                  <div class="animate__animated animate__fadeInRight o9">  {{configs.weight}} Grams</div>
+                  <div class="animate__animated animate__fadeInRight o9">  {{mobile_1_weight}} Grams</div>
                 </div>
             </div>
             <div class="row " >
@@ -162,7 +153,7 @@ Colors:<br />
                   <span>  SIM Slots</span>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o10">
-                   <div class="animate__animated animate__fadeInRight o10"> {{configs.sim_features}}</div>
+                   <div class="animate__animated animate__fadeInRight o10"> {{mobile_1_sim}}</div>
                 </div>
             </div>
             <div class="row" >
@@ -170,7 +161,7 @@ Colors:<br />
                   <span>  Fingerprint Sensors</span>
                 </div>
                 <div class="col-6 animate__animated animate__flipInX o11">
-                   <div class="animate__animated animate__fadeInRight o11"> {{configs.fingerprint_sensors}}</div>
+                   <div class="animate__animated animate__fadeInRight o11"> {{mobile_1_fingerprint}}</div>
                 </div>
             </div>
  
@@ -193,7 +184,7 @@ Colors:<br />
     <div class="row  thumbs-h" >
         <div class="justify-content-around col-12 horizontal-scroll-wrapper">
             <mat-card *ngFor="let relatedMobile of relatedMobiles" (click)="onClickRelatedMobile(relatedMobile);">
-                <div class="mob-tag mob-title">{{relatedMobile.model_name}}</div>
+                <div class="mob-tag mob-title" style="color: black; font-weight: normal;">{{relatedMobile.model_name}}</div>
                 <img src="{{__baseUrl}}{{relatedMobile.image}}" width="100%" />
                 
                 <div class="mob-tag mob-mem">{{relatedMobile.ram}} / {{relatedMobile.internal_storage}} GB</div>

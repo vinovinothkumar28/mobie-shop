@@ -1,50 +1,51 @@
 
-  .o1{
-    animation-delay: 2s;
+ .o1{
+    animation-delay: 0s;
 }
 
 .o2{
-    animation-delay: 3s;
+    animation-delay: 0.25s;
 }
 .o3{
-    animation-delay: 4s;
+    animation-delay: 0.5s;
 }
 .o4{
-    animation-delay: 5s;
+    animation-delay: 0.75s;
 }
 .o5{
-    animation-delay: 6s;
+    animation-delay: 1s;
 }
 .o6{
-    animation-delay: 7s;
+    animation-delay: 1.25s;
 }
  
 .o7{
-    animation-delay: 8s;
+    animation-delay: 1.5s;
 }
 
 .o8{
-    animation-delay: 9s;
+    animation-delay: 1.75s;
 }
 
 .o9{
-    animation-delay: 10s;
+    animation-delay: 2s;
 }
 
 .o10{
-    animation-delay: 11s;
+    animation-delay: 2.25s;
 }
 
 .o11{
-    animation-delay: 12s;
+    animation-delay: 2.5s;
 }
 
 .o12{
-    animation-delay: 13s;
+    animation-delay: 2.75s;
 }
 .o13{
-    animation-delay: 14s;
+    animation-delay: 3s;
 }
+
 
 .middle
 {
@@ -77,4 +78,9 @@ text-align: right;
     padding-bottom: 10px;
     font-weight: bold;
     text-align: left;
+    }
+
+ .dispTag
+    {
+        padding-top: 10px;
     }

@@ -1,6 +1,11 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../services/service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogExampleComponent } from '../dialog-example/dialog-example.component';
+
+
 
 
 @Component({
@@ -10,21 +15,37 @@ import { ServiceService } from '../services/service.service';
 })
 export class ViewConfigurationComponent implements OnInit {
 
+  compareMobiles= JSON.parse(window.localStorage.getItem("compareItems"));
+
+  mobile_1_model;
+  mobile_1_display;
+  mobile_1_processor;
+  mobile_1_storage;
+  mobile_1_ram;
+  mobile_1_camera;
+  mobile_1_cameraFront;
+  mobile_1_battery;
+  mobile_1_operatingSystem;
+  mobile_1_weight;
+  mobile_1_sim;
+  mobile_1_fingerprint;
+  mobile_1_price;
+  mobile_1_brand;
+  mobile_1_image;
+  mobile_1_colors;
+
   dummy =[];
   
 
 
   d1:any;
-  // sub1:[];
-  // sub2;
-
   checked=false;
   compare_array = [];
 
 
   pics:any;
   public color_pics:any;
-  public __baseUrl = "http://192.168.1.100/mobile-tracker/";
+  public __baseUrl = "http://localhost/mobile-tracker/";
   public imageUrl;
   public configs:any;
   public relatedMobiles;
@@ -32,9 +53,29 @@ export class ViewConfigurationComponent implements OnInit {
 
 
 
-  constructor( private route: ActivatedRoute, private _services: ServiceService ) { }
+  constructor( private route: ActivatedRoute, private _services: ServiceService, private router: Router, private _location: Location, private dialog: MatDialog ) { }
 
   ngOnInit(): void { 
+
+    let localStore = localStorage.getItem("compareItems");
+    if(localStore == null)
+    {
+      let data = [];
+      window.localStorage.setItem("compareItems",JSON.stringify(data));
+      this.compareMobiles= JSON.parse(window.localStorage.getItem("compareItems"));
+    }
+
+    setInterval(() =>{
+     
+      
+      let dum1 = (window.localStorage.getItem("compareItems"));
+      this.compareMobiles = JSON.parse(dum1);
+      //this.getmobilename();
+      
+
+    },1000);
+
+
 
 
     let id = this.route.snapshot.paramMap.get('id');  
@@ -49,15 +90,35 @@ export class ViewConfigurationComponent implements OnInit {
     this._services.mobileconfig(id).subscribe((data: any )=>  {
 
       this.configs = data.specs;
+
+      this.mobile_1_model =data.specs.model_name
+      this.mobile_1_display =data.specs.display
+      this.mobile_1_processor =data.specs.processor
+      this.mobile_1_storage =data.specs.internal_storage
+      this.mobile_1_ram =data.specs.ram
+      this.mobile_1_camera =data.specs.camera
+      this.mobile_1_cameraFront =data.specs.camera_front_pixel
+      this.mobile_1_battery =data.specs.battery
+      this.mobile_1_operatingSystem =data.specs.operating_system
+      this.mobile_1_weight =data.specs.weight
+      this.mobile_1_sim =data.specs.sim_features
+      this.mobile_1_fingerprint =data.specs.fingerprint_sensors
+      this.mobile_1_price =data.specs.price
+      this.mobile_1_brand =data.specs.brand_name
+     
+
+
+
      // console.log(this.configs);
       this.pics = data.specs.pics.split(','); 
       console.log(this.pics);
       this.imageUrl = this.__baseUrl+this.pics[0];
       this.color_pics = data.color_pics;
       //console.log(this.color_pics);
-      this.getMobiles(data.specs.brand_name);
+      this.getMobiles(data.specs.brand_name,id);
       this.mobile_id = id;
 
+      this.compareMobiles= JSON.parse(window.localStorage.getItem("compareItems"));
       if( (JSON.parse(window.localStorage.getItem("compareItems"))).includes(id) )
       {
         this.checked = true;
@@ -77,82 +138,90 @@ export class ViewConfigurationComponent implements OnInit {
     this.imageUrl = this.__baseUrl+pic;
   }
 
-  getMobiles(bname)
+  getMobiles(bname,id)
   {
     
-    this._services.getMobiles(bname).subscribe((data: any )=>  {
+    this._services. getRelatedMobiles(bname,id).subscribe((data: any )=>  {
       //console.log(data);
       this.relatedMobiles = data;
+
 
     });
   }
 
 
-  onClickRelatedMobile(mobile)
+  onClickRelatedMobile(mobile:any)
   {
-    this.getMobileConfig(mobile.id);
+    
+    this.router.navigate(['/viewConfig',mobile.id]);
+
+  //   this.router.navigateByUrl('/viewConfig/:id', { skipLocationChange: true }).then(() => {
+  //     this.router.navigate(['/viewConfig',mobile.id]);
+  // });
+   
+   // this.router.navigate([decodeURI(this._location.path())]);
+    //window.location.reload();
+    // this.router.navigateByUrl('/viewConfig',{skipLocationChange: true}).then(() =>
+
+    // this.router.navigate(['/viewConfig',mobile.id])
+    
+    // );
+    //this.getMobileConfig(mobile.id);
+
+    setTimeout(function(){
+       location.reload(); 
+      }, 500);
+   
   }
 
-  onClickCompare(event)
-  {
-  //   if(JSON.parse(localStorage.getItem("dummy"))==null)
-  //   alert("Compare [0]");
-  //  else
-  //   alert("Compare ["+JSON.parse(localStorage.getItem("dummy")).length+"]");
+  
+  campareOnClick(e,mid1)
+  { 
     
+    let dum1 = JSON.parse(window.localStorage.getItem("compareItems"));
+    // console.log("a"+dum1.includes(mid1)+"as"+dum1.length);
+    if(!dum1.includes(mid1) && dum1.length>=2)
+    { e.preventDefault(); 
+    
+      let msg = "You Can't Compare More Than Two Mobiles..";
+        this.dialog.open(DialogExampleComponent, {data: {message: msg}});
+    }
 
-    if(event)
+  }
+
+  onClickCompare(event,mid)
+  {
+ 
+    if(event.checked)
     {
       let dum1 = (window.localStorage.getItem("compareItems"));
-      this.compare_array = JSON.parse(dum1);
-      console.log(this.compare_array);
-      if(this.compare_array.length < 2)
+      this.compareMobiles = JSON.parse(dum1);
+        
+      if(this.compareMobiles.length < 2)
       {
-        this.compare_array.push(""+this.mobile_id);
-        window.localStorage.setItem("compareItems",JSON.stringify(this.compare_array));
-      }
-      else
-      {
-        this.checked = false;
-        alert("only 2 mobs are allowed to compare");
+        this.compareMobiles.push(mid);
+       
+        window.localStorage.setItem("compareItems",JSON.stringify(this.compareMobiles));
 
-      }
-      
+        this.compareMobiles = JSON.parse(window.localStorage.getItem("compareItems"));
+
+      }  
     }
     else
     {
-      this.compare_array = JSON.parse(window.localStorage.getItem("compareItems"));
-      if(this.compare_array.length == 1)
-      {
-        this.compare_array.pop();
-      }
-      else{
-        
-        this.compare_array.splice((this.compare_array.indexOf(this.mobile_id),1));
-      }
+      this.compareMobiles = JSON.parse(window.localStorage.getItem("compareItems"));
+      let current_postion=this.compareMobiles.indexOf(mid);
+   
+      this.compareMobiles.splice(this.compareMobiles.indexOf(mid),1);
      
-      window.localStorage.setItem("compareItems",JSON.stringify(this.compare_array));
-      this.checked= false;
-      
+      window.localStorage.setItem("compareItems",JSON.stringify(this.compareMobiles));
+      this.compareMobiles = JSON.parse(window.localStorage.getItem("compareItems"));
+     
+            
     }
-    //this.filter = !this.filter;
-    // alert(event + mobileid);
-    
-    //  this.dummy.push(mobileid);
-    //  localStorage.setItem("dummy",JSON.stringify(this.dummy));
- 
-//     if(parseInt(localStorage.getItem("CompareCount"))==0 || localStorage.getItem("CompareCount")==null)
-//     {localStorage.setItem("CompareMobile1",JSON.stringify(mobileid));
-//     localStorage.setItem("CompareCount",JSON.stringify(1));
-//   }
-//     else if(parseInt(localStorage.getItem("CompareCount"))==1)
-//    { localStorage.setItem("CompareMobile2",JSON.stringify(mobileid));
-//     localStorage.setItem("CompareCount",JSON.stringify(2));
-// }else
-// { alert("count exited"); }
-
-
-     
+  
   }
+
+
 
 }
